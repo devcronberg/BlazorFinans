@@ -8,7 +8,7 @@ namespace BlazorFinans.Kerne
     {
         public static double MånedligYdelse(double årligRente, int antalMåneder, double hovedstol)
         {
-            double rente = årligRente / 12;
+            double rente = årligRente / 12 / 100;
             double faktor = Math.Pow((1 + rente), antalMåneder) - 1;
             return (rente + (rente / faktor)) * hovedstol;
         }

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFinans.Kerne", "BlazorFinans.Kerne\BlazorFinans.Kerne.csproj", "{EC7AAC5B-0F9F-4108-93CE-DEF4C9D0803A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.Kerne", "BlazorFinans.Kerne\BlazorFinans.Kerne.csproj", "{EC7AAC5B-0F9F-4108-93CE-DEF4C9D0803A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFinans.ConsoleApp", "BlazorFinans.ConsoleApp\BlazorFinans.ConsoleApp.csproj", "{F7E950C8-90E7-404B-B0B2-E3921A27260F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.ConsoleApp", "BlazorFinans.ConsoleApp\BlazorFinans.ConsoleApp.csproj", "{F7E950C8-90E7-404B-B0B2-E3921A27260F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFinans.BlazorServerApp", "BlazorFinans.BlazorServerApp\BlazorFinans.BlazorServerApp.csproj", "{5C3D33CA-05B1-4A69-ABBB-B42FC8E863B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.BlazorServerApp", "BlazorFinans.BlazorServerApp\BlazorFinans.BlazorServerApp.csproj", "{5C3D33CA-05B1-4A69-ABBB-B42FC8E863B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
