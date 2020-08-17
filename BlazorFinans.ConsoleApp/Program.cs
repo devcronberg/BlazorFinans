@@ -1,12 +1,15 @@
-﻿using System;
+﻿using BlazorFinans.Kerne;
+using System;
+using System.Threading.Tasks;
 
 namespace BlazorFinans.ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            TestYdelse();    
+            var data = await MoraRente.HentRente();
+            //TestYdelse();    
         }
 
         private static void TestYdelse()
