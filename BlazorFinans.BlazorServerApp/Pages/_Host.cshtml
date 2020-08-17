@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlazorFinans</title>
     <base href="~/" />
+    <link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />
+
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
@@ -19,6 +21,18 @@
     <app>
         <component type="typeof(App)" render-mode="ServerPrerendered" />
     </app>
+    <script src="~/script/finance.js"></script>
     <script src="_framework/blazor.server.js"></script>
+    <script src="_content/MatBlazor/dist/matBlazor.js"></script>
+
+    <script>
+        window.beregnYdelse = (principal, rate, payments, type) => {
+            var f = new Finance();
+            let r = f.AM(principal, rate, payments, type);
+            return r;
+            console.log("Ydelse er beregnet til " + r)
+        }
+
+    </script>
 </body>
 </html>

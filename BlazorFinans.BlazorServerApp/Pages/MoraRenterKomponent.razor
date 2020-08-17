@@ -1,0 +1,47 @@
+﻿@page "/MoraRenterKomponent"
+@using MatBlazor;
+
+<h2>Mora renter</h2>
+<p>Dette er et eksempel på brug af en avanceret (NuGet) komponent (<a href="https://www.matblazor.com/Table">https://www.matblazor.com/Table</a>). Data kommer fra <a href="https://airtable.com">AirTable</a>.</p>
+
+<MatTable ShowPaging="false" Style="width: 400px" UseSortHeaderRow="true" class="mat-elevation-z5" Items="@renter" Striped="true" PageSize="100">
+    <MatTableHeader>
+        <MatSortHeaderRow SortChanged="@SortData">
+            <MatSortHeader  SortId="dato">Dato</MatSortHeader>
+            <MatSortHeader  SortId="rente">Rente</MatSortHeader>
+        </MatSortHeaderRow>
+    </MatTableHeader>
+    <MatTableRow>
+        <td style="width: 200px;white-space: nowrap">@context.Dato.ToString("dd-MM-yyyy")</td>
+        <td style="text-align: right">@context.Rente.ToString("P2")</td>
+    </MatTableRow>
+</MatTable>
+
+@code {
+
+
+    List<BlazorFinans.Kerne.MoraRente> dataFraAirTable;
+    List<BlazorFinans.Kerne.MoraRente> renter;
+    protected override async Task OnInitializedAsync()
+    {
+        dataFraAirTable = await BlazorFinans.Kerne.MoraRente.HentRente();
+        SortData(null);
+    }
+
+    void SortData(MatSortChangedEvent sort)
+    {
+        if (sort == null)
+            sort = new MatSortChangedEvent { Direction = MatSortDirection.Asc, SortId = "dato" };
+
+        if (sort.SortId=="dato" && sort.Direction== MatSortDirection.Asc)
+            renter = dataFraAirTable.OrderBy(i => i.Dato).ToList();
+        else if (sort.SortId == "dato" && sort.Direction == MatSortDirection.Desc)
+            renter = dataFraAirTable.OrderByDescending(i => i.Dato).ToList();
+        else if (sort.SortId == "rente" && sort.Direction == MatSortDirection.Asc)
+            renter = dataFraAirTable.OrderBy(i => i.Rente).ToList();
+        else if (sort.SortId == "rente" && sort.Direction == MatSortDirection.Desc)
+            renter = dataFraAirTable.OrderByDescending(i => i.Rente).ToList();
+
+    }
+
+}
