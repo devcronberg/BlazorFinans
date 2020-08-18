@@ -1,0 +1,58 @@
+﻿@page "/BeregnYdelseJS"
+@inject IJSRuntime JSRuntime;
+
+<h2>Beregn månedlig ydelse</h2>
+<p>Denne side viser brug af javascript (her <a href="https://github.com/ebradyjobory/finance.js">https://github.com/ebradyjobory/finance.js</a>) direkte fra C#.</p>
+
+<EditForm Model="@model" OnValidSubmit="Beregn">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <table>
+        <tr>
+            <td>Hovedstol</td>
+            <td><InputNumber id="hovedstol" @onblur="CheckBlank" @bind-Value="model.Hovedstol" /></td>
+        </tr>
+        <tr>
+            <td>Årlig rente</td>
+            <td><InputNumber id="rente" @bind-Value="model.Rente" @onblur="CheckBlank" /></td>
+        </tr>
+        <tr>
+            <td>Antal terminer</td>
+            <td><InputNumber id="antalTerninger" @bind-Value="model.AntalTerminer" @onblur="CheckBlank" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Beregn ydelse" /></td>
+        </tr>
+    </table>
+</EditForm>
+<p style="@(visResultat?"display:block":"display:none")">Den månedlige ydelse er beregnet til @model.BeregnetYdelse.ToString("N2")</p>
+
+@code {
+
+    BlazorFinans.Kerne.BeregnYdelse model = new Kerne.BeregnYdelse();
+    bool visResultat = false;
+
+
+    void CheckBlank()
+    {
+        if (!model.Hovedstol.HasValue)
+            model.Hovedstol = 100000;
+        if (!model.AntalTerminer.HasValue)
+            model.AntalTerminer = 10;
+        if (!model.Rente.HasValue)
+            model.Rente = 10;
+        visResultat = false;
+    }
+    protected override void OnInitialized()
+    {
+        CheckBlank();
+        base.OnInitialized();
+    }
+
+    async Task Beregn()
+    {
+        visResultat = true;
+        model.BeregnetYdelse = await JSRuntime.InvokeAsync<double>("beregnYdelse", model.Hovedstol, model.Rente, model.AntalTerminer, 1);
+    }
+}

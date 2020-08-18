@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlazorFinans.BlazorComponents\BlazorFinans.BlazorComponents.csproj" />
     <ProjectReference Include="..\BlazorFinans.Kerne\BlazorFinans.Kerne.csproj" />
   </ItemGroup>
 

@@ -1,27 +1,31 @@
-<!DOCTYPE html>
-<html>
-
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorFinans.BlazorWASMApp</title>
-    <base href="/" />
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link href="manifest.json" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlazorFinans</title>
+    
+    <link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />
+
+    <link href="css/site.css" rel="stylesheet" />
 </head>
 
 <body>
-    <app>Loading...</app>
+    <h1 class="titel">Blazor Finans WASM</h1>
+    <app></app>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
+    <script src="script/finance.js"></script>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/MatBlazor/dist/matBlazor.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script>
+        window.beregnYdelse = (principal, rate, payments, type) => {
+            var f = new Finance();
+            let r = f.AM(principal, rate, payments, type);
+            return r;
+            console.log("Ydelse er beregnet til " + r)
+        }
+    </script>
 </body>
 
 </html>

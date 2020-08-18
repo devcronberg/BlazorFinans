@@ -1,0 +1,16 @@
+html, body {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 20px;
+}
+
+.titel, .menu {
+    text-align: center;
+}
+
+.menu{
+    padding-bottom: 10px;
+    border-bottom: 1px dotted black;
+}

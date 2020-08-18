@@ -1,15 +1,14 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
+<div class="menu">
+    [<NavLink class="nav-link" href="" Match="NavLinkMatch.All">Forside</NavLink>]
+    [<NavLink class="nav-link" href="BeregnYdelse">Beregn ydelse (C#)</NavLink>]
+    [<NavLink class="nav-link" href="BeregnYdelseJS">Beregn ydelse (JS)</NavLink>]
+    [<NavLink class="nav-link" href="BeregnYdelseDelt">Beregn ydelse (Delt)</NavLink>]
+    [<NavLink class="nav-link" href="MoraRenter">Morarenter (table)</NavLink>]
+    [<NavLink class="nav-link" href="MoraRenterKomponent">Morarenter (komponent)</NavLink>]
 </div>
 
-<div class="main">
-    <div class="top-row px-4">
-        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-    </div>
-
-    <div class="content px-4">
-        @Body
-    </div>
+<div>
+    @Body
 </div>

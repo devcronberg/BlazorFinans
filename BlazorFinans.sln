@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.ConsoleApp", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.BlazorServerApp", "BlazorFinans.BlazorServerApp\BlazorFinans.BlazorServerApp.csproj", "{5C3D33CA-05B1-4A69-ABBB-B42FC8E863B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFinans.BlazorWASMApp", "BlazorFinans.BlazorWASMApp\BlazorFinans.BlazorWASMApp.csproj", "{B1B717D1-5D5F-4460-889F-15B2A3741EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFinans.BlazorWASMApp", "BlazorFinans.BlazorWASMApp\BlazorFinans.BlazorWASMApp.csproj", "{B1B717D1-5D5F-4460-889F-15B2A3741EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFinans.BlazorComponents", "BlazorFinans.BlazorComponents\BlazorFinans.BlazorComponents.csproj", "{8592C83D-608A-490F-9E48-4FAF9FC9933F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B1B717D1-5D5F-4460-889F-15B2A3741EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1B717D1-5D5F-4460-889F-15B2A3741EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1B717D1-5D5F-4460-889F-15B2A3741EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8592C83D-608A-490F-9E48-4FAF9FC9933F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8592C83D-608A-490F-9E48-4FAF9FC9933F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8592C83D-608A-490F-9E48-4FAF9FC9933F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8592C83D-608A-490F-9E48-4FAF9FC9933F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

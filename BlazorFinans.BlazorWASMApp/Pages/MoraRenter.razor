@@ -1,0 +1,60 @@
+﻿@page "/MoraRenter"
+<h2>Mora renter</h2>
+<style>
+    td {
+        width: 100px;
+        text-align: right;
+    }
+    .knapper {
+        
+        margin-bottom: 25px;
+    }
+</style>
+
+<p>Denne side viser HTTP API kald (her til <a href="https://airtable.com">AirTable</a>). Data hentes en gang når siden loader og herefter bruges LINQ til at begrænse data.</p>
+
+@if (renter != null)
+{
+
+    <div class="knapper">
+        @foreach (var item in år)
+        {
+            <button @onclick="@(e=> ClickAar(item))">@item</button>
+        }
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Dato</th>
+                <th>Rente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in renter)
+            {
+                <tr>
+                    <td>@item.Dato.ToString("dd-MM-yyyy")</td>
+                    <td>@item.Rente.ToString("P2")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+
+    List<BlazorFinans.Kerne.MoraRente> renter;
+    List<BlazorFinans.Kerne.MoraRente> dataFraAirTable;
+    List<int> år;
+    protected override async Task OnInitializedAsync()
+    {
+        dataFraAirTable = await BlazorFinans.Kerne.MoraRente.HentRente();
+        år = dataFraAirTable.GroupBy(i => i.Dato.Year).Select(i => i.Key).ToList();
+        renter = dataFraAirTable.Where(i => i.Dato.Year == år.Last()).ToList();
+    }
+
+    public void ClickAar(int aar) {
+        renter = dataFraAirTable.Where(i => i.Dato.Year == aar).ToList();
+    }
+}
+
