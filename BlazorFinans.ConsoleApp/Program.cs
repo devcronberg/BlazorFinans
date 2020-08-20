@@ -8,8 +8,13 @@ namespace BlazorFinans.ConsoleApp
     {
         static async Task Main(string[] args)
         {
-            var data = await MoraRente.HentRente();
+            await TestHentRente();
             //TestYdelse();    
+        }
+
+        private static async Task TestHentRente()
+        {
+            var data = await MoraRente.HentRente();
         }
 
         private static void TestYdelse()
