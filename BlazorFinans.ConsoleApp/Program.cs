@@ -1,4 +1,5 @@
 ﻿using BlazorFinans.Kerne;
+
 using System;
 using System.Threading.Tasks;
 
@@ -9,12 +10,16 @@ namespace BlazorFinans.ConsoleApp
         static async Task Main(string[] args)
         {
             await TestHentRente();
-            //TestYdelse();    
+            TestYdelse();
         }
 
         private static async Task TestHentRente()
         {
             var data = await MoraRente.HentRente();
+            foreach (var item in data)
+            {
+                Console.WriteLine(item.Dato + " " + item.Rente);
+            }
         }
 
         private static void TestYdelse()
