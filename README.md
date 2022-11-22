@@ -7,4 +7,4 @@ Eksempel på en Blazor applikation. Den viser blandt andet
 - Brugen af komponenter - herunder delte komponenter
 - Brugen af databinding / modeller
 
-Applikationen bliver løbende opdateret - sidst til .NET 5
+Applikationen bliver løbende opdateret - sidst til .NET 7
